@@ -4,9 +4,11 @@ import 'rxjs/add/operator/map';
 import { GitHubService } from '../../services/git-hub.service';
 
 @Component({
+   
   selector: 'search-form',
   templateUrl: './search-form.component.html',
-  styleUrls: ['./search-form.component.css']
+  styleUrls: ['./search-form.component.css'],
+ 
 })
 export class SearchFormComponent implements OnInit {
   

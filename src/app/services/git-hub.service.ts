@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http,Response, RequestOptions, Request, RequestMethod, Headers } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -14,15 +14,18 @@ export class GitHubService {
     private clientSecret: string ='a5b4592bca22af899331ec598a53a6fc04cbe585';
 
     constructor(private _http:Http){
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
         this.userName = '';
     }
 
     getUser(){
         if(this.userName){
-            return this._http.get('http://api.github.com/search/users/' + this.userName
+            return this._http.get('http://api.github.com/users/' + this.userName
         + '?client_id=' + this.clientId 
-        + ' &client_secret=' + this.clientSecret).map(res => res.json().catch(this.handleError))
+        + ' &client_secret=' + this.clientSecret).map(res => res.json())
         }
+       
     }
 
     getRepos(){
@@ -31,7 +34,7 @@ export class GitHubService {
         +'/repos?client_id=' + this.clientId
         + '&client_secret=' + this.clientSecret)
         .map(res => res.json())
-        .catch(this.handleError)
+       
         }
     }
 
