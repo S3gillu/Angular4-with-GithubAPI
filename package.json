@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve https://s3gillu.github.io/Angular4-with-GithubAPI/",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
